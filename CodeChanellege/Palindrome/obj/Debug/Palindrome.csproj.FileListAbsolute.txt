@@ -1,0 +1,7 @@
+D:\Training\CodeChanellege\Palindrome\bin\Debug\Palindrome.exe.config
+D:\Training\CodeChanellege\Palindrome\bin\Debug\Palindrome.exe
+D:\Training\CodeChanellege\Palindrome\bin\Debug\Palindrome.pdb
+D:\Training\CodeChanellege\Palindrome\obj\Debug\Palindrome.csprojAssemblyReference.cache
+D:\Training\CodeChanellege\Palindrome\obj\Debug\Palindrome.csproj.CoreCompileInputs.cache
+D:\Training\CodeChanellege\Palindrome\obj\Debug\Palindrome.exe
+D:\Training\CodeChanellege\Palindrome\obj\Debug\Palindrome.pdb
