@@ -1,0 +1,10 @@
+D:\Training\Project0.5\ContactClient\bin\Debug\ContactClient.exe.config
+D:\Training\Project0.5\ContactClient\bin\Debug\ContactClient.exe
+D:\Training\Project0.5\ContactClient\bin\Debug\ContactClient.pdb
+D:\Training\Project0.5\ContactClient\bin\Debug\ContactLibrary.dll
+D:\Training\Project0.5\ContactClient\bin\Debug\ContactLibrary.pdb
+D:\Training\Project0.5\ContactClient\obj\Debug\ContactClient.csprojAssemblyReference.cache
+D:\Training\Project0.5\ContactClient\obj\Debug\ContactClient.csproj.CoreCompileInputs.cache
+D:\Training\Project0.5\ContactClient\obj\Debug\ContactClient.csproj.CopyComplete
+D:\Training\Project0.5\ContactClient\obj\Debug\ContactClient.exe
+D:\Training\Project0.5\ContactClient\obj\Debug\ContactClient.pdb

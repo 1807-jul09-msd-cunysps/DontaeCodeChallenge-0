@@ -1,0 +1,6 @@
+D:\Training\Project0.5\ContactLibrary\bin\Debug\ContactLibrary.dll
+D:\Training\Project0.5\ContactLibrary\bin\Debug\ContactLibrary.pdb
+D:\Training\Project0.5\ContactLibrary\obj\Debug\ContactLibrary.csprojAssemblyReference.cache
+D:\Training\Project0.5\ContactLibrary\obj\Debug\ContactLibrary.csproj.CoreCompileInputs.cache
+D:\Training\Project0.5\ContactLibrary\obj\Debug\ContactLibrary.dll
+D:\Training\Project0.5\ContactLibrary\obj\Debug\ContactLibrary.pdb
