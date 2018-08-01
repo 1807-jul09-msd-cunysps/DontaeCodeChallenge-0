@@ -145,7 +145,7 @@ namespace ContactLibrary
     public class PersonMembers
     {
         //Data members. 
-        private short iD = (short)DateTime.Now.Ticks;
+        private int iD = (int)ContactQuery.ID++;
         private string name;
         private string address;
         private string number;

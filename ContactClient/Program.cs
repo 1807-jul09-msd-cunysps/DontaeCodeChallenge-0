@@ -14,8 +14,9 @@ namespace ContactClient
         public static void Main(string[] args)
         {
             int selNum = 0;
+            bool exceptable = false;
 
-            while (selNum != 8)
+            while (exceptable == false)
             {
                 Console.WriteLine("\n***************************");
                 Console.WriteLine("1 : Add a Contact");
@@ -29,31 +30,44 @@ namespace ContactClient
                 Console.WriteLine("\n***************************");
                 Console.Write("\nEnter number: ");
 
-                selNum = Convert.ToInt32(Console.ReadLine());
-
-                switch (selNum)
+                string feedback = Console.ReadLine();
+                bool success = Int32.TryParse(feedback, out selNum);
+                if (success)
                 {
-                    case 1:
-                        ContactData.addContact();
-                        break;
-                    case 2:
-                        ContactData.displayContact();
-                        break;
-                    case 3:
-                        ContactData.searchContact();
-                        break;
-                    case 4:
-                        ContactData.editContact();
-                        break;
-                    case 5:
-                        ContactData.deleteContact();
-                        break;
-                    case 6:
-                        ContactData.saveContact();
-                        break;
-                    case 7:
-                        ContactData.loadContact();
-                        break;
+                    switch (selNum)
+                    {
+                        case 1:
+                            ContactData.addContact();
+                            break;
+                        case 2:
+                            ContactData.displayContact();
+                            break;
+                        case 3:
+                            ContactData.searchContact();
+                            break;
+                        case 4:
+                            ContactData.editContact();
+                            break;
+                        case 5:
+                            ContactData.deleteContact();
+                            break;
+                        case 6:
+                            ContactData.saveContact();
+                            break;
+                        case 7:
+                            ContactData.loadContact();
+                            break;
+                        case 8:
+                            exceptable = true;
+                            break;
+                        default:
+                            Console.WriteLine("Error, Try again. ");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Try again!");
                 }
             }
             Console.WriteLine("Press any key to exit");
