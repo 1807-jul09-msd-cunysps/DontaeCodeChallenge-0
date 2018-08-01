@@ -86,21 +86,33 @@ namespace ContactLibrary
         //Delete contact method
         public static void deleteContact()
         {
-            Console.WriteLine("Enter contact first name: ");
-            string name = Console.ReadLine();
-
-            PersonMembers temp = null;
-
-            foreach (PersonMembers p in contactList)
+            do
             {
-                if (name.Trim().ToLower() == p.Name.Trim().ToLower())
+                try
                 {
-                    temp = p;
+                    Console.WriteLine("Enter contact first name: ");
+                    string name = Console.ReadLine();
+
+                    PersonMembers temp = null;
+
+                    foreach (PersonMembers p in contactList)
+                    {
+                        if (p.Name.Contains(name))
+                        {
+                            temp = p;
+                        }
+                    }
+
+                    contactList.Remove(temp);
+                    Console.WriteLine("Contact successfully removed");
+                    break;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("\nContact doesnt exist");
                 }
             }
-
-            contactList.Remove(temp);
-            Console.WriteLine("Contact successfully removed");
+            while (true);
         }
 
         //Edit Contact
@@ -108,72 +120,88 @@ namespace ContactLibrary
         {
             Console.WriteLine("Enter first name to Edit: ");
             string name = Console.ReadLine();
-
             foreach (PersonMembers p in contactList)
             {
-                if (p.Name != name)
-                {
-                    Console.WriteLine($"Address for {name} count not be found.");
-                }
-                else
+                if (p.Name.Contains(name))
                 {
                     #region USERINPUTEDITS
                     Console.WriteLine("Insert first name: ");
                     string fname = Console.ReadLine();
-
                     Console.WriteLine("Insert last city: ");
                     string lname = Console.ReadLine();
-
                     Console.WriteLine("Insert Address: ");
                     string streetAddress = Console.ReadLine();
-
                     Console.WriteLine("Insert House Number: ");
                     string numAddress = Console.ReadLine();
-
                     Console.WriteLine("Insert City/Town: ");
                     string cityAddress = Console.ReadLine();
-
                     //Console.WriteLine("Insert State: ");
                     //string stateAddress = Console.ReadLine();
-
                     //Console.WriteLine("Insert city: ");
                     //string countryAddress = Console.ReadLine();
-
                     Console.WriteLine("Insert Zip Code: ");
                     string zipcodeAddress = Console.ReadLine();
-
                     Console.WriteLine("Insert Area Code: ");
                     string areacodePhone = Console.ReadLine();
-
                     //Console.WriteLine("Insert Country Code: ");
                     //string countrycode = Console.ReadLine();
-
                     Console.WriteLine("Insert ext.: ");
                     string extension = Console.ReadLine();
-
                     Console.WriteLine("Insert phone number: ");
                     string numberPhone = Console.ReadLine();
                     #endregion
-
+                    //Instance the class
+                    Person p = new Person();
+                    p.firstName = fname;
+                    p.lastName = lname;
+                    p.Pid = DateTime.Now.Ticks;
+                    p.address.houseNum = numAddress;
+                    p.address.Pid = p.Pid;
+                    p.address.street = streetAddress;
+                    p.address.city = cityAddress;
+                    p.address.state = State.NY;
+                    p.address.country = Country.US;
+                    p.address.zipCode = zipcodeAddress;
+                    p.phone.Pid = p.Pid;
+                    p.phone.areaCode = areacodePhone;
+                    p.phone.countryCode = Country.US;
+                    p.phone.ext = extension;
+                    p.phone.number = numberPhone;
+                    //adding to the list
+                    PersonMembers pm = p.CreatePM();
+                    contactList.Add(pm);
+                    contactList.Remove(pm);
                     Console.WriteLine($"Address updated for {name}");
+                }
+                else
+                {
+                    Console.WriteLine($"Address for {name} count not be found.");
                 }
             }
         }
 
+
         //Search contact method
         public static void searchContact()
         {
-            Console.WriteLine("Enter first name: ");
-            string name = Console.ReadLine();
 
-            foreach (PersonMembers p in contactList)
-            {
-                if (name.Trim().ToLower() == p.Name.Trim().ToLower())
-                {
-                    Console.WriteLine(p.Print);
-                }
-            }
+                    bool found = false;
+                    Console.WriteLine("Enter first name: ");
+                    string name = Console.ReadLine();
 
+                    foreach (PersonMembers p in contactList)
+                    {
+                        if (p.Name.Contains(name))
+                        {
+                            Console.WriteLine(p.Print);
+                            found = true;
+                        }
+                    }
+                    if (found == false)
+                    {
+
+                        Console.WriteLine("Name does not exist");
+                    }
         }
 
         //Show the list method

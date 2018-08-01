@@ -16,6 +16,7 @@ namespace ContactLibrary
         private static string delStringQuery = "DELETE FROM ContactTable";
         private static string saveStringQuery = "INSERT INTO ContactTable (JsonData) VALUES(Convert(VARBINARY(MAX), '";
         private static string saveStringQuery_2 = "'));";
+        public static int ID = (int)DateTime.Now.Ticks;
 
         public static void WritetoFile(string content)
         {
