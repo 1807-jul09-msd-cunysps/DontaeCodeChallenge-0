@@ -8,7 +8,8 @@ namespace ContactLibrary
 {
     public class ContactData
     {
-        public static List<Person> contactList = new List<Person>();
+        //public static List<Person> contactList = new List<Person>();
+        public static List<PersonMembers> contactList = new List<PersonMembers>();
 
         //Add contact method
         public static void addContact()
@@ -60,17 +61,25 @@ namespace ContactLibrary
             p.address.Pid = p.Pid;
             p.address.street = streetAddress;
             p.address.city = cityAddress;
-            p.address.State = State.NY;
-            p.address.Country = Country.US;
+            p.address.state = State.NY;
+            p.address.country = Country.US;
             p.address.zipCode = zipcodeAddress;
             p.phone.Pid = p.Pid;
             p.phone.areaCode = areacodePhone;
-            p.phone.countrycode = Country.US;
+            p.phone.countryCode = Country.US;
             p.phone.ext = extension;
             p.phone.number = numberPhone;
 
             //adding to the list
-            contactList.Add(p);
+            PersonMembers pm = p.CreatePM(); 
+            contactList.Add(pm);
+
+            //Serialize the information to my file
+            System.Web.Script.Serialization.JavaScriptSerializer JSserializer;
+            JSserializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            string jsonstring = JSserializer.Serialize(contactList);
+            ContactQuery.WritetoFile(jsonstring);
+
             Console.WriteLine("Contact successfully added");
         }
 
@@ -80,11 +89,11 @@ namespace ContactLibrary
             Console.WriteLine("Enter contact first name: ");
             string name = Console.ReadLine();
 
-            Person temp = null;
+            PersonMembers temp = null;
 
-            foreach (Person p in contactList)
+            foreach (PersonMembers p in contactList)
             {
-                if (name.Trim().ToLower() == p.firstName.Trim().ToLower())
+                if (name.Trim().ToLower() == p.Name.Trim().ToLower())
                 {
                     temp = p;
                 }
@@ -100,9 +109,9 @@ namespace ContactLibrary
             Console.WriteLine("Enter first name to Edit: ");
             string name = Console.ReadLine();
 
-            foreach (Person p in contactList)
+            foreach (PersonMembers p in contactList)
             {
-                if (p.firstName != name)
+                if (p.Name != name)
                 {
                     Console.WriteLine($"Address for {name} count not be found.");
                 }
@@ -157,11 +166,11 @@ namespace ContactLibrary
             Console.WriteLine("Enter first name: ");
             string name = Console.ReadLine();
 
-            foreach (Person p in contactList)
+            foreach (PersonMembers p in contactList)
             {
-                if (name.Trim().ToLower() == p.firstName.Trim().ToLower())
+                if (name.Trim().ToLower() == p.Name.Trim().ToLower())
                 {
-                    Console.WriteLine(p);
+                    Console.WriteLine(p.Print);
                 }
             }
 
@@ -170,12 +179,21 @@ namespace ContactLibrary
         //Show the list method
         public static void displayContact()
         {
-            foreach (Person p in contactList)
+            foreach (PersonMembers p in contactList)
             {
-                Console.WriteLine(p);
+                Console.WriteLine(p.Print);
             }
         }
 
+        public static void saveContact()
+        {
+            ContactQuery.WriteToSQL_DB(ContactQuery.JsonSerializer<List<PersonMembers>>(contactList));
+        }
+
+        public static void loadContact()
+        {
+            contactList = ContactQuery.JsonDeserialize<List<PersonMembers>>(ContactQuery.ReadFromSQL_DB());
+        }
     }
 }
     /*public static class DataAccess

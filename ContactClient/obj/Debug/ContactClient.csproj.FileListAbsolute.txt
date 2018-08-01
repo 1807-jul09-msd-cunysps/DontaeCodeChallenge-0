@@ -8,3 +8,4 @@ D:\Training\Project0.5\ContactClient\obj\Debug\ContactClient.csproj.CoreCompileI
 D:\Training\Project0.5\ContactClient\obj\Debug\ContactClient.csproj.CopyComplete
 D:\Training\Project0.5\ContactClient\obj\Debug\ContactClient.exe
 D:\Training\Project0.5\ContactClient\obj\Debug\ContactClient.pdb
+D:\Training\Project0.5\ContactClient\bin\Debug\NLog.config

@@ -36,10 +36,22 @@ namespace ContactLibrary
         public Address address { get; set; }
         [DataMember]
         public Phone phone { get; set; }
+        public string Getname { get => firstName + " " + lastName; } 
 
         public override string ToString()
         {
             return $"\n{firstName} {lastName}\n{address.print()}\n{phone.print()}";
+        }
+
+        public PersonMembers CreatePM()
+        {
+            PersonMembers pm = new PersonMembers();
+
+            pm.Address = this.address.print();
+            pm.Number = this.phone.print();
+            pm.Name = this.Getname;
+
+            return pm; 
         }
 
         /*public List<Person> Get()
@@ -99,15 +111,15 @@ namespace ContactLibrary
         [DataMember]
         public string city { get; set; }
         [DataMember]
-        public State State { get; set; }
+        public State state { get; set; }
         [DataMember]
-        public Country Country { get; set; }
+        public Country country { get; set; }
         [DataMember]
         public string zipCode { get; set; }
 
         public string print()
         {
-            return $"{houseNum} {street}\n{city}, {State} {zipCode}";
+            return $"{houseNum} {street}\n{city},{country} {state} {zipCode}";
         }
     }
 
@@ -116,7 +128,7 @@ namespace ContactLibrary
         [DataMember]
         public long Pid { get; set; }
         [DataMember]
-        public Country countrycode { get; set; }
+        public Country countryCode { get; set; }
         [DataMember]
         public string areaCode { get; set; }
         [DataMember]
@@ -128,5 +140,21 @@ namespace ContactLibrary
         {
             return $"{areaCode} {number}: {ext}";
         }
+    }
+
+    public class PersonMembers
+    {
+        //Data members. 
+        private short iD = (short)DateTime.Now.Ticks;
+        private string name;
+        private string address;
+        private string number;
+        //Data properties. 
+        public long ID { get => iD; }
+        public string Name { set => name = value; get => name; }
+        public string Address { set => address = value; get => address; }
+        public string Number { set => number = value; get => number; }
+        //Print property. 
+        public string Print { get => $"ID: {iD}; {name} {address} {number}"; }
     }
 }
