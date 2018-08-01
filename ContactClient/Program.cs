@@ -15,7 +15,7 @@ namespace ContactClient
         {
             int selNum = 0;
 
-            while (selNum != 6)
+            while (selNum != 8)
             {
                 Console.WriteLine("\n***************************");
                 Console.WriteLine("1 : Add a Contact");
@@ -23,7 +23,9 @@ namespace ContactClient
                 Console.WriteLine("3 : Search for Contact");
                 Console.WriteLine("4 : Edit a Contact");
                 Console.WriteLine("5 : Delete Contact");
-                Console.WriteLine("6 : Close App");
+                Console.WriteLine("6 : Save Contact");
+                Console.WriteLine("7 : Load Contact");
+                Console.WriteLine("8 : Close App");
                 Console.WriteLine("\n***************************");
                 Console.Write("\nEnter number: ");
 
@@ -45,6 +47,12 @@ namespace ContactClient
                         break;
                     case 5:
                         ContactData.deleteContact();
+                        break;
+                    case 6:
+                        ContactData.saveContact();
+                        break;
+                    case 7:
+                        ContactData.loadContact();
                         break;
                 }
             }

@@ -4,3 +4,9 @@ D:\Training\Project0.5\ContactLibrary\obj\Debug\ContactLibrary.csprojAssemblyRef
 D:\Training\Project0.5\ContactLibrary\obj\Debug\ContactLibrary.csproj.CoreCompileInputs.cache
 D:\Training\Project0.5\ContactLibrary\obj\Debug\ContactLibrary.dll
 D:\Training\Project0.5\ContactLibrary\obj\Debug\ContactLibrary.pdb
+D:\Training\Project0.5\ContactLibrary\bin\Debug\NLog.config
+D:\Training\Project0.5\ContactLibrary\bin\Debug\Newtonsoft.Json.dll
+D:\Training\Project0.5\ContactLibrary\bin\Debug\NLog.dll
+D:\Training\Project0.5\ContactLibrary\bin\Debug\Newtonsoft.Json.xml
+D:\Training\Project0.5\ContactLibrary\bin\Debug\NLog.xml
+D:\Training\Project0.5\ContactLibrary\obj\Debug\ContactLibrary.csproj.CopyComplete
